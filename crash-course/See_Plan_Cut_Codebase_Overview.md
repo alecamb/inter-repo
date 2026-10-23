@@ -7,7 +7,7 @@ This document is designed to serve as a comprehensive codebase and conceptual gu
 [![Paper](https://img.shields.io/badge/arXiv-2511.17777-b31b1b.svg)](https://arxiv.org/abs/2511.17777)  [![Project Page](https://img.shields.io/badge/Project-Website-blue)](https://raprakashvi.github.io/see-plan-cut/)   [![ICRA 2026](https://img.shields.io/badge/ICRA-2026-green)](https://2026.ieee-icra.org/)
 
 
-![System Overview](./Images/System_Overview.png)
+![System Overview](inter-repo/Images/System_Overview.png)
 
 *The **See → Plan → Cut** loop: OCT provides sub-surface tissue feedback, an MPC-based planner computes the optimal ablation sequence, and the UR5e robot delivers precise laser pulses — closing the loop autonomously.*
 
@@ -93,7 +93,7 @@ Understanding the capabilities of each of these packages is not essential for co
 Calibration is a necessary quality of any robotics system. However, given the potential cost of error in this system and the finite margins that the end effector works on, our calibration must as precise and consistent as possible. The following section reviews how the system and its components are calibrated.
 
 ---
-![CoordinateFrames](./Images/CoordinateFrames.png)
+![CoordinateFrames](inter-repo/Images/CoordinateFrames.png)
 *Visualization of key coordinate frames that must be calibrated for accurate communication between the functioning components of the robotics system.*
 
 $$
@@ -154,7 +154,7 @@ Using the point cloud data from the imported OCT scans, a user can select a cent
 
 ---
 
-![FitExample](./Images/FitEX.png)
+![FitExample](inter-repo/Images/FitEX.png)
 
 *The above is a figure pulled from the relevant paper, note specifically (b) which compares a Gaussian model and super-Gaussian model to an example point cloud. The super-Gaussian fits more closely to the point cloud and that is confirmed by the RMSE in (c).*
 
