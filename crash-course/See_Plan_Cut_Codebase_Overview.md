@@ -94,9 +94,10 @@ Calibration is a necessary quality of any robotics system. However, given the po
 
 ---
 ![CoordinateFrames](../Images/CoordinateFrames.png)
+
 *Visualization of key coordinate frames that must be calibrated for accurate communication between the functioning components of the robotics system.*
 
-$$
+```math
 {}^{\mathrm{base}}\mathbf{T}_{\mathrm{laser}}
 =
 {}^{\mathrm{base}}\mathbf{T}_{\mathrm{EE}}
@@ -104,7 +105,7 @@ $$
 {}^{\mathrm{EE}}\mathbf{T}_{\mathrm{OCT}}
 \,
 {}^{\mathrm{OCT}}\mathbf{T}_{\mathrm{laser}}
-$$
+```
 
 *The above equation is the key transformation required for calibration*
 
@@ -162,7 +163,9 @@ Using the point cloud data from the imported OCT scans, a user can select a cent
 
 Super-Gaussian generally provides the better fit. The following equation is used to typically define the ablation model:
 
-$$z(x,y) = -A \exp\!\left(-\left(\frac{(x-\mu_x)^2+(y-\mu_y)^2}{2\sigma^2}\right)^P\right) + d$$
+```math
+z(x,y) = -A \exp\!\left(-\left(\frac{(x-\mu_x)^2+(y-\mu_y)^2}{2\sigma^2}\right)^P\right) + d$$
+```
 
 A truncated variant enforces a minimum ablation threshold $\phi$, preventing shallow over-deposition at crater edges. Parameters $(A, \sigma, P)$ are fit from experimental OCT crater scans. Here, $A$ is ablation amplitude, setting the maximum depth, $\sigma$ is the beam spread, controlling the lateral width of the crater, and $P$ is the steepness of the Gaussian walls. For $P$, a value of $P=1$ is perfectly Gaussian and as $P>1$, the crater becomes flatter.
 
@@ -227,7 +230,7 @@ With information the robot can understand, we can call `utils.robotMove()` to mo
 
 The planned-cut script combines several transformations to locate each laser target in the robot world frame:
 
-$$
+```math
 \mathbf{p}_{world}
 =
 {}^{world}\mathbf{T}_{EE}
@@ -237,7 +240,7 @@ $$
 {}^{OCT}\mathbf{T}_{tissue}
 \,
 \mathbf{p}_{tissue}
-$$
+```
 
 Here, `fkMat` represents the robot end-effector pose when the OCT scan was collected, `EE2OCT` is the calibrated end-effector-to-OCT transformation, and `Hmat` maps the local tissue frame into the OCT frame. The resulting `pointsWorld` value specifies where the laser should be positioned.
 
